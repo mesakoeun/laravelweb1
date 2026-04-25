@@ -1,13 +1,13 @@
 <table class="table table-bordered text-center">
 <thead>
 <tr>
-<th>ID</th><th>Name</th><th>Price</th><th>Qty</th><th>Image</th><th>Action</th>
+<th>No</th><th>Name</th><th>Price</th><th>Qty</th><th>Image</th><th>Action</th>
 </tr>
 </thead>
 <tbody>
 @foreach($products as $p)
 <tr>
-<td>{{ $p->id }}</td>
+<td>{{ $loop->iteration }}</td>
 <td>{{ $p->productname }}</td>
 <td>${{ $p->price }}</td>
 <td>{{ $p->quantity }}</td>
