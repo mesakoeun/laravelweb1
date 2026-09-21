@@ -1,0 +1,16 @@
+{$SITE_ADDRESS::80} {
+    encode zstd gzip
+
+    # Files uploaded to storage/app/public (replaces `php artisan storage:link`)
+    handle_path /storage/* {
+        root * /var/www/html/storage/app/public
+        file_server
+    }
+
+    # Everything else goes to Laravel
+    handle {
+        root * /var/www/html/public
+        php_fastcgi app:9000
+        file_server
+    }
+}
